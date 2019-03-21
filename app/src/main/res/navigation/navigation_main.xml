@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/navigation_main"
+            app:startDestination="@id/workspacesFragment">
+
+    <fragment android:id="@+id/presentationsFragment"
+              android:name="com.denie.slidlenative.PresentationsFragment"
+              android:label="presentations_fragment"
+              tools:layout="@layout/presentations_fragment"/>
+    <fragment android:id="@+id/workspacesFragment"
+              android:name="com.denie.slidlenative.WorkspacesFragment"
+              android:label="workspaces_fragment"
+              tools:layout="@layout/workspaces_fragment"/>
+</navigation>
