@@ -1,7 +1,7 @@
 # BlackSliderNative
 [Showcase]
 
-Bare bones application built with :
+Demo application built with :
   1. Kotlin
   2. coroutines in viewModel to emulate slower data fetching and displaying shimmering layout
   3. shimmering layout for UI placeholder
