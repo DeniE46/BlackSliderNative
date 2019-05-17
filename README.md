@@ -1,4 +1,5 @@
 # BlackSliderNative
+[Showcase]
 
 Bare bones application built with :
   1. Kotlin
