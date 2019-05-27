@@ -12,5 +12,8 @@
     <fragment android:id="@+id/workspacesFragment"
               android:name="com.denie.slidlenative.WorkspacesFragment"
               android:label="workspaces_fragment"
-              tools:layout="@layout/workspaces_fragment"/>
+              tools:layout="@layout/workspaces_fragment">
+        <action android:id="@+id/action_workspacesFragment_to_presentationsFragment"
+                app:destination="@id/presentationsFragment"/>
+    </fragment>
 </navigation>

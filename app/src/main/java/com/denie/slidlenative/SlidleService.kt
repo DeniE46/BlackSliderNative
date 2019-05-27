@@ -6,35 +6,38 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import okhttp3.logging.HttpLoggingInterceptor
-
+import retrofit2.Response
+import retrofit2.http.Path
+import retrofit2.http.Query
 
 
 interface SlidleService {
 
-@GET("getfeaturedprojects")
-fun getWorkspaces(): Call<MutableList<WorkspaceModel>>
+    @GET("getfeaturedprojects")
+    suspend fun getWorkspaces(): MutableList<WorkspaceModel>
 
-companion object{
-    private const val BASE_URL = "http://slidle.com/content/"
+    @GET("getpages/{workId}?flat=true")
+    suspend fun getPresentationsPerWorkspace(@Path("workId") workId:Int): MutableList<PresentationModel>
 
-
-
-
-    fun createService():SlidleService{
-
-        val interceptor = HttpLoggingInterceptor()
-        interceptor.level = HttpLoggingInterceptor.Level.BODY
-        val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
+    companion object {
+        private const val BASE_URL = "http://slidle.com/content/"
 
 
-        return Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .client(client)
-            .build()
-            .create(SlidleService::class.java)
+        fun createService(): SlidleService {
+
+            val interceptor = HttpLoggingInterceptor()
+            interceptor.level = HttpLoggingInterceptor.Level.BODY
+            val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
+
+
+            return Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(client)
+                .build()
+                .create(SlidleService::class.java)
+        }
+
     }
-
-}
 
 }
